@@ -3,14 +3,6 @@
 </body>
 
 <script>
-function toDegrees (angle) {
-  return angle * (180 / Math.PI);
-}
-
-function toRadians (angle) {
-  return angle * (Math.PI / 180);
-}
-
 var angleSec, angleMin, angleHr;
 
 var output = document.querySelector('#output');
@@ -27,6 +19,7 @@ setInterval(function(){
 	var time = new Date();
   ctx.fillStyle = '#ffffff';
   ctx.fillRect(0, 0, 300, 300);
+  
   angleHr = ((((time.getHours()) <= 12) ? (time.getHours()) : ((time.getHours()) - 12)) * 30) + ((time.getMinutes() / 60) * 30);
   xHr = (45 * Math.sin(toRadians(angleHr))) + 150;
   yHr = (45 * Math.cos(toRadians(angleHr))) + 150;
@@ -51,7 +44,8 @@ setInterval(function(){
   
   angleSec = time.getSeconds() * 6;
   xSec = (100 * Math.sin(toRadians(angleSec))) + 150;
-  ySec = (100 * Math.cos(toRadians(angleSec))) + 150;ctx.strokeStyle = '#ff0000';
+  ySec = (100 * Math.cos(toRadians(angleSec))) + 150;
+  ctx.strokeStyle = '#ff0000';
   ctx.lineWidth = 1; 
   ctx.fill();
   ctx.beginPath();
